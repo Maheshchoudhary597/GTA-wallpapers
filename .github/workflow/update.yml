@@ -1,0 +1,52 @@
+name: Auto Update Wallpapers JSON
+
+on:
+  push:
+    paths-ignore:
+      - 'wallpapers.json'
+      - '.github/**'
+      - 'README.md'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-json:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Generate wallpapers.json
+        run: |
+          node -e '
+          const fs = require("fs");
+          const files = fs.readdirSync(".");
+          const validExts = [".jpg", ".jpeg", ".png", ".webp"];
+          const imgFiles = files.filter(f => validExts.some(ext => f.toLowerCase().endsWith(ext)));
+          
+          const list = imgFiles.map((f, i) => {
+            const rawName = f.replace(/\.[^.]+$/, "");
+            const title = rawName.replace(/[_-]/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+            return {
+              id: imgFiles.length - i,
+              title: title + " 4K",
+              category: "gta",
+              url: `https://cdn.jsdelivr.net/gh/Maheshchoudhary597/GTA-wallpapers@main/${encodeURIComponent(f)}`
+            };
+          });
+          
+          list.sort((a, b) => b.id - a.id);
+          fs.writeFileSync("wallpapers.json", JSON.stringify(list, null, 2), "utf8");
+          console.log("Updated wallpapers.json with", list.length, "images");
+          '
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add wallpapers.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update wallpapers.json [skip ci]" && git push)
