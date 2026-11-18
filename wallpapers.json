@@ -1,8 +1,44 @@
 [
   {
-    "id": 1,
-    "title": "Vice City 4K Aesthetic",
+    "id": 7,
+    "title": "Wp1 4K",
     "category": "gta",
     "url": "https://cdn.jsdelivr.net/gh/Maheshchoudhary597/GTA-wallpapers@main/wp1.jpg"
+  },
+  {
+    "id": 6,
+    "title": "Wp2 4K",
+    "category": "gta",
+    "url": "https://cdn.jsdelivr.net/gh/Maheshchoudhary597/GTA-wallpapers@main/wp2.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Wp3 4K",
+    "category": "gta",
+    "url": "https://cdn.jsdelivr.net/gh/Maheshchoudhary597/GTA-wallpapers@main/wp3.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Wp4 4K",
+    "category": "gta",
+    "url": "https://cdn.jsdelivr.net/gh/Maheshchoudhary597/GTA-wallpapers@main/wp4.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Wp5 4K",
+    "category": "gta",
+    "url": "https://cdn.jsdelivr.net/gh/Maheshchoudhary597/GTA-wallpapers@main/wp5.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Wp6 4K",
+    "category": "gta",
+    "url": "https://cdn.jsdelivr.net/gh/Maheshchoudhary597/GTA-wallpapers@main/wp6.jpg"
+  },
+  {
+    "id": 1,
+    "title": "Wp7 4K",
+    "category": "gta",
+    "url": "https://cdn.jsdelivr.net/gh/Maheshchoudhary597/GTA-wallpapers@main/wp7.jpg"
   }
 ]
